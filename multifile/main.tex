@@ -1,0 +1,22 @@
+% 第一个LaTex示例  %注释
+
+\documentclass[UTF8]{ctexbook}  % ctexart 表示chinese text article
+
+\usepackage{geometry}  % 设计页面尺寸的宏包
+\geometry{a4paper,centering,scale=0.8}  % A4纸张、版心居中、长宽占页面的0.8倍
+
+% \includeonly{./include/title,./include/first,./include/third}  % 只编译的部分，不在其中的本次不编译。
+
+% \usepackage{syntonly}  % 只检查语法，不输出DVI/PDF文件
+
+\begin{document}  % 声明了一个document环境，里面是文章的正文部分，也是直接输出的部分。
+	
+	\input{./include/title}  % 直接把文件中的内容复制到该处
+	
+	\tableofcontents
+	
+	\include{./include/first}  % 导入
+	\include{./include/second}
+	\include{./include/third}
+	
+\end{document}  % 文章的正文结束

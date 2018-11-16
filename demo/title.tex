@@ -1,0 +1,26 @@
+% 第一个LaTex示例  %注释
+
+\documentclass[UTF8]{ctexart}  % ctexart 表示chinese text article
+
+\usepackage{geometry}  % 设计页面尺寸的宏包
+\geometry{a4paper,centering,scale=0.8}  % A4纸张、版心居中、长宽占页面的0.8倍
+
+% 在begin之前的内容称为导言区（preamble），用来对文档的性质做一些设置，或定义一些命令。
+
+\begin{document}  % 声明了一个document环境，里面是文章的正文部分，也是直接输出的部分。
+	
+	% 单独标题页
+	\begin{titlepage}
+		\vspace*{\fill}
+		\begin{center}
+			\normalfont {\Huge\bfseries 第一个\LaTeX 示例}
+			
+			\bigskip {\Large\itshape ALISURE}
+			
+			\medskip
+			\today
+		\end{center}
+		\vspace{\stretch{3}}
+	\end{titlepage}
+	
+\end{document}  % 文章的正文结束

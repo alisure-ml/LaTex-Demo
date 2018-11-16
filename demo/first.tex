@@ -2,10 +2,6 @@
 
 \documentclass[UTF8]{ctexart}  % ctexart 表示chinese text article
 
-\title{第一个\LaTeX 示例}  % 文章的标题
-\author{ALISURE}  % 文章的作者
-\date{\today}  % 写作的日期
-
 \bibliographystyle{plain}  % 声明参考文献的格式
 
 \newtheorem{thm}{定理}  % 定义一个thm环境
@@ -21,12 +17,17 @@
 \usepackage{tocbibind}  % 增加目录的项目，默认在目录中加入目录项本身、参考文献索引等项目
 
 
+\title{第一个\LaTeX 示例——我该怎么学习？\thanks{本文由ALISURE编写。}}  % 文章的标题
+\author{ALISURE\\西安电子科技大学\thanks{研究生学校} \and 李硕\\武汉大学\thanks{本科学校}}  % 文章的作者
+\date{\today}  % 写作的日期
+
 
 % 在begin之前的内容称为导言区（preamble），用来对文档的性质做一些设置，或定义一些命令。
 
 \begin{document}  % 声明了一个document环境，里面是文章的正文部分，也是直接输出的部分。
 	
 	\maketitle  % 实际输出文章标题
+	
 	\tableofcontents  % 目录
 	
 	\begin{abstract}
