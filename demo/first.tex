@@ -1,0 +1,124 @@
+% 第一个LaTex示例  %注释
+
+\documentclass[UTF8]{ctexart}  % ctexart 表示chinese text article
+
+\title{第一个\LaTeX 示例}  % 文章的标题
+\author{ALISURE}  % 文章的作者
+\date{\today}  % 写作的日期
+
+\bibliographystyle{plain}  % 声明参考文献的格式
+
+\newtheorem{thm}{定理}  % 定义一个thm环境
+
+\usepackage{graphicx}  % 插图功能的宏包
+\usepackage{float}  % 用于图表的不浮动
+
+\usepackage{geometry}  % 设计页面尺寸的宏包
+\geometry{a4paper,centering,scale=0.8}  % A4纸张、版心居中、长宽占页面的0.8倍
+
+\usepackage[format=hang,font=small,textfont=it]{caption}  % 设计图表的标题格式
+
+\usepackage{tocbibind}  % 增加目录的项目，默认在目录中加入目录项本身、参考文献索引等项目
+
+
+
+% 在begin之前的内容称为导言区（preamble），用来对文档的性质做一些设置，或定义一些命令。
+
+\begin{document}  % 声明了一个document环境，里面是文章的正文部分，也是直接输出的部分。
+	
+	\maketitle  % 实际输出文章标题
+	\tableofcontents  % 目录
+	
+	\begin{abstract}
+		这是一篇对\LaTeX 介绍的文章。
+	\end{abstract}
+	
+	\section{空格的作用}  % 开始新的一节
+		这里是一大段文字。首先，我要敲击键盘才能打出文字。然后，我不想敲击键盘打出这些文字。最后，我还是敲出了这些文字。
+		你可以看到换行不会分段，只不过这样看起来易读罢了。
+		
+		你可以看到一个空行可以分段。你也可以看出段前不用打空格就可以有缩进。你可以看出汉字后面的空 格会被忽略，but the space of english   can not be  ignore.
+		
+	\section{命令与环境}  % 开始新的一节
+		这一节处理脚注\footnote{这只是用来演示什么是脚注}和引用内容。
+		
+		我们来使用一个命令，比如\emph{强调}。我们可以发现，命令都是以反斜线开头的，后接命令名，命令可以带参数和可选参数。
+		
+		下面是引用的用法：
+		\begin{quote}
+			这里是引用我的内容吗？引用将环境中的内容单独分行，增加缩进和上下间距，从而突出引用的部分。
+		\end{quote}
+		
+		\begin{thm}[ALISURE]
+			啥？这里演示如何使用自定义环境，需要在导言区定义环境。
+		\end{thm}
+		
+	\section{数学公式}
+		行内公式（inline formula），又叫正文公式（in-text formula），你可以发现$a+b=c$就是一个行内公式。
+		
+		对于较长或比较重要的公式，一般单独居中写一行，有时还需要给公式编号，这种叫列表公式（displayed formula）：
+		\begin{equation}
+			a(b+c) = ab + ac
+		\end{equation}
+		
+		数学公式看起来比较复杂，比如一些键盘上没有的字符：
+		\begin{equation}
+			\angle ACB = \pi / 2
+		\end{equation}
+		
+		再比如有一定结构的公式，如上标、下标、角度：
+		\begin{equation}
+			A_{b}B^t = B_{b2}C^{t_2} + AC_{b^2}^{2} + 90^\circ
+		\end{equation}
+		
+	\section{图表}
+		插入外部图片，需要在导言区使用usepackage命令引入宏包graphicx。
+		
+		直接插入一张外部图片：\includegraphics[width=3cm,height=3cm]{../img/1.jpg}。插入完毕。
+		
+		使用单独的环境插入图片：
+		\begin{figure}[ht]  % 插入使用的浮动体环境，h表示可以出现在环境周围的文本所在处（here），t表示一页的顶部（top）
+			\centering  % 表示后面的内容居中
+			\includegraphics[width=3cm,height=3cm,scale=0.1]{../img/1.jpg}  % 插入图片
+			\caption{这是一个外部图片。}  % 插图自动编号和标题
+			\label{fig:1}  % 给图形定义一个标签，使用该标签可以在文章的其他地方引用caption产生的编号
+		\end{figure}
+		
+		表格一般在\LaTeX 中完成，需要制定表格的行、列对齐模式和表格线。
+		
+		\begin{tabular}{|rrr|}  % 声明表格的模式，|rrr|表示表格有三列，都是右对齐，在第一列前面和第三列后面各有一条垂直的表格线
+			\hline  % 表格中的横线
+				序号 & 姓名 & 学号 \\  % 行与行之间用命令 \\ 隔开
+			\hline 1 & ALISURE & 1603121715 \\ 2 & 李硕 & 1603121716 \\
+			\hline
+		\end{tabular}
+		
+		table环境：
+		\begin{table}[H]  % H表示不浮动，可以和正文连在一起。
+			\centering  % 表示后面的内容居中
+			\begin{tabular}{|rrr|}
+				\hline
+					序号 & 姓名 & 学号 \\
+				\hline
+					1 & ALISURE & 1603121715 \\ 2 & 李硕 & 1603121716 \\
+				\hline
+			\end{tabular}
+			\qquad  % 产生2em的空白
+				($a^2 + b^2 = c^2$)
+		\end{table}
+		
+	\section{文献}
+		首先，需要有.bib格式的文件，可以使用JabRef制作，后面再详细介绍。
+		在这里测试引用其他文献\cite{Kline}，{}中是在bib中定义的引用标签。
+	
+	\section{自动化}
+		上一章中实际上是使用了bibtex自动化工具，是比较复杂的自动化工具。简单的自动化工具有页码、定理和公式的自动编号等。
+		
+		目录也是自动从章节命令中提取并写入目录文件中的，tableofcontents即为目录命令。
+		
+		引用不仅限于参考文献。图表、公式的编号，只要预先设定了标签，也可以通过辅助文件为中介引用。
+	
+	\nocite{Shiye}  % 在列表中显示并不直接引用的文献
+	\bibliography{../bib/math}  % 从文献数据库math中获取文献信息，打印参考文献列表
+
+\end{document}  % 文章的正文结束
